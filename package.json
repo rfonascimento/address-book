@@ -13,9 +13,10 @@
     "@uirouter/angularjs": "^1.0.20",
     "angular": "^1.7.5",
     "angular-ui-router": "^1.0.20",
-    "app-routes": "^0.1.0"
+    "angularjs": "0.0.1"
   },
   "devDependencies": {
+    "sass": "^1.15.1",
     "typescript": "^3.1.6"
   }
 }

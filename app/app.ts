@@ -6,6 +6,7 @@ import appRoutes from './app-routes';
    const angular = require('angularjs');
    const uirouter = require('angular-ui-router');
    const uibootstrap = require('angular-ui-bootstrap');
+   const uibootstrapstyles = require('bootstrap-css-only');
 
    const myapp = angular.module('fuzeAddressBook', ['ui.router', 'ui.bootstrap']);
 

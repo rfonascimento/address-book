@@ -14,8 +14,20 @@ export default function routes() {'use strict';
          $stateProvider
             .state('home', {
                url: '/home',
-               template: require('./pages/home/home.html'),
-               controller: require('./pages/home/home').default()
+               views: {
+                  'header': {
+                     template: require('./views/header/header.html'),
+                     controller: require('./views/header/header').controller()
+                  },
+                  'main':{
+                     template: require('./views/home/home.html'),
+                     controller: require('./views/home/home').controller()
+                  },
+                  'footer':{
+                     template: require('./views/footer/footer.html'),
+                     controller: require('./views/footer/footer').controller()
+                  }
+               },
             });
 
          $urlRouterProvider.otherwise('home');

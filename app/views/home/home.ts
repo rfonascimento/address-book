@@ -8,7 +8,7 @@
 
 })();*/
 
-export default function controller(app){
+export function controller(app){
    /*app.controller('HomeCtrl', ['$scope', function($scope){
       $scope.persona = {name: "fffffffffffffffff",id:2};
    }]);*/

@@ -9,9 +9,14 @@
 })();*/
 
 export default function controller(app){
+   /*app.controller('HomeCtrl', ['$scope', function($scope){
+      $scope.persona = {name: "fffffffffffffffff",id:2};
+   }]);*/
+   /*return function($scope){
+      $scope.persona = {name: "fffffffffffffffff",id:2};
+   }*/
    return ['$scope', function($scope){
       $scope.persona = {name: "fffffffffffffffff",id:2};
-
    }]
    /*
    app.controller('HomeCtrl', ['$scope', function($scope){

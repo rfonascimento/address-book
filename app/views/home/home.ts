@@ -7,17 +7,19 @@
    }]);
 
 })();*/
+import serviceDaoAddressBook from "";
 
 export function controller(app){
+   serviceDaoAddressBook(app)
    /*app.controller('HomeCtrl', ['$scope', function($scope){
       $scope.persona = {name: "fffffffffffffffff",id:2};
    }]);*/
    /*return function($scope){
       $scope.persona = {name: "fffffffffffffffff",id:2};
    }*/
-   return ['$scope', function($scope){
+   return ['$scope', 'daoAddressBook', function($scope, daoAddressBook){
       $scope.persona = {name: "fffffffffffffffff",id:2};
-   }]
+   }];
    /*
    app.controller('HomeCtrl', ['$scope', function($scope){
       $scope.persona = {name: "fffffffffffffffff",id:2};

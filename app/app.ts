@@ -1,5 +1,6 @@
 import '../assets/css/main.scss'
 import appRoutes from './app-routes';
+// import serviceDaoAddressBook from './services/dao.address.book';
 
 /*import('./pages/home').then(function(){});*/
 (function(){'use strict';
@@ -11,5 +12,6 @@ import appRoutes from './app-routes';
    const myapp = angular.module('fuzeAddressBook', ['ui.router', 'ui.bootstrap']);
 
    appRoutes(myapp);
+   // serviceDaoAddressBook(myapp);
 
 })();

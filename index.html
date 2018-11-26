@@ -2,9 +2,11 @@
 <html data-ng-app="fuzeAddressBook" ng-strict-di>
 <body>
 
-    <div data-ui-view="header"></div>
-    <div data-ui-view="main"></div>
-    <div data-ui-view="footer"></div>
+<div class="body-wrapper">
+   <header data-ui-view="header"></header>
+   <div class="main" data-ui-view="main"></div>
+   <footer data-ui-view="footer"></footer>
+</div>
 
 <script src="./app/app.ts"></script>
 </body>

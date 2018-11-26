@@ -1,2 +1,41 @@
 @import './partials/header.scss';
 @import './partials/footer.scss';
+
+
+html,
+body {
+   height: 100%;
+   margin: 0
+}
+
+.body-wrapper{
+   display: flex;
+   flex-flow: column;
+   height: 100%;
+}
+
+.body-wrapper header {
+   flex: 0 1 auto;
+}
+
+.body-wrapper footer {
+   flex: 0 1 40px;
+}
+
+.body-wrapper .main {
+   flex: 0 1 auto;
+}
+
+
+.main .login, .main .register {
+   /* The image used */
+   background-image: url('../../assets/images/bg_full_landing_page.png');
+
+   /* Full height */
+   height: 100%;
+
+   /* Center and scale the image nicely */
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}

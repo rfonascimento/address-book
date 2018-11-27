@@ -1,0 +1,14 @@
+@import 'variables.scss';
+button.btn-primary {
+   background-color: $fuze-color-blue;
+   border-color: $fuze-color-blue;
+}
+button.btn-primary:hover{
+   background-color: darken($fuze-color-blue, 10%);
+   border-color: darken($fuze-color-blue, 10%);
+}
+
+button.btn {
+   border-radius: $border-radius;
+   font-size: 0.9rem;
+}

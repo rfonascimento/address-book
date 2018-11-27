@@ -2,4 +2,5 @@
 header{
    height: 60px;
    background-color: $fuze-color-purple-darken;
+   border-bottom: 1px solid darken($fuze-color-purple-darken, 10%);
 }

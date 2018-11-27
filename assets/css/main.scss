@@ -1,3 +1,6 @@
+@import 'buttons.scss';
+@import 'inputs.scss';
+@import 'misc.scss';
 @import './partials/header.scss';
 @import './partials/footer.scss';
 
@@ -11,6 +14,7 @@ body {
 body {
    display: flex;
    flex-direction: column;
+   font-family: 'Roboto', sans-serif !important;
 }
 
 header,
@@ -18,14 +22,17 @@ footer {
    flex: none;
 }
 
-main {
+body main {
    overflow: auto;
    overflow-scrolling: touch;
    flex: auto;
-   background: red;
+   display: flex;
+   flex-direction: column;
 }
 
 main .login, main .register {
+   flex-grow: 1;
+
    /* The image used */
    background-image: url('../../assets/images/bg_full_landing_page.png');
 

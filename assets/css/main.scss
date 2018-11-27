@@ -4,30 +4,28 @@
 
 html,
 body {
+   margin: 0;
    height: 100%;
-   margin: 0
+   min-height: 100%;
 }
-
-.body-wrapper{
+body {
    display: flex;
-   flex-flow: column;
-   height: 100%;
+   flex-direction: column;
 }
 
-.body-wrapper header {
-   flex: 0 1 auto;
+header,
+footer {
+   flex: none;
 }
 
-.body-wrapper footer {
-   flex: 0 1 40px;
+main {
+   overflow: auto;
+   overflow-scrolling: touch;
+   flex: auto;
+   background: red;
 }
 
-.body-wrapper .main {
-   flex: 0 1 auto;
-}
-
-
-.main .login, .main .register {
+main .login, main .register {
    /* The image used */
    background-image: url('../../assets/images/bg_full_landing_page.png');
 

@@ -11,7 +11,8 @@ export default function routes() {'use strict';
 
          $stateProvider
             .state('root', {
-               url: '/root',
+               url: '/root/{candidate}',
+               redirectTo: 'root.user.login',
                views: {
                   'header': {
                      template: require('./views/header/header.html'),

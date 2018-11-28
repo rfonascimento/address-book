@@ -1,6 +1,7 @@
 @import 'buttons.scss';
 @import 'inputs.scss';
 @import 'misc.scss';
+@import './components/loading.scss';
 @import './partials/header.scss';
 @import './partials/footer.scss';
 
@@ -30,7 +31,7 @@ body main {
    flex-direction: column;
 }
 
-main .login, main .register {
+main {
    flex-grow: 1;
 
    /* The image used */
@@ -43,4 +44,44 @@ main .login, main .register {
    background-position: center;
    background-repeat: no-repeat;
    background-size: cover;
+}
+
+[data-ui-view="main"].ng-enter, [data-ui-view="main"].ng-leave {
+   /*position: absolute;
+   left: 0;
+   right: 0;
+   -webkit-transition:all .5s ease-in-out;
+   -moz-transition:all .5s ease-in-out;
+   -o-transition:all .5s ease-in-out;*/
+   transition:all .5s ease-in-out;
+}
+
+[data-ui-view="main"].ng-enter {
+   opacity: 0;
+   /*-webkit-transform:scale3d(0.5, 0.5, 0.5);
+   -moz-transform:scale3d(0.5, 0.5, 0.5);
+   transform:scale3d(0.5, 0.5, 0.5);*/
+}
+
+[data-ui-view="main"].ng-enter-active {
+   opacity: 1;
+   /*-webkit-transform:scale3d(1, 1, 1);
+   -moz-transform:scale3d(1, 1, 1);
+   transform:scale3d(1, 1, 1);*/
+}
+
+[data-ui-view="main"].ng-leave {
+   opacity: 1;
+   /*padding-left: 0px;*/
+   /*-webkit-transform:translate3d(0, 0, 0);
+   -moz-transform:translate3d(0, 0, 0);
+   transform:translate3d(0, 0, 0);*/
+}
+
+[data-ui-view="main"].ng-leave-active {
+   opacity: 0;
+   /*padding-left: 100px;*/
+   /*-webkit-transform:translate3d(100px, 0, 0);
+   -moz-transform:translate3d(100px, 0, 0);
+   transform:translate3d(100px, 0, 0);*/
 }

@@ -1,7 +1,10 @@
 @import 'buttons.scss';
 @import 'inputs.scss';
+@import 'typography.scss';
+@import 'navigation.scss';
 @import 'misc.scss';
 @import './components/loading.scss';
+@import './components/toaster.scss';
 @import './partials/header.scss';
 @import './partials/footer.scss';
 
@@ -51,12 +54,13 @@ main {
 }
 
 [data-ui-view="main"] nav{
-   background-color: #292929;
+   background-color: $nav-background;
    flex: 1;
+   max-width: 80px;
 }
 
 [data-ui-view="main"] .main-container{
-   padding: 10px;
+   padding: 20px 50px;
    flex: 5;
 }
 

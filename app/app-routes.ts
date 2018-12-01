@@ -12,22 +12,34 @@ export default function appRoutes() {
                redirectTo: 'root.user.login',
                views: {
                   'header': {
-                     template: require('./views/header/header.html'),
-                     controller: require('./views/header/header').controller()
+                     template: require('./views/partials/header/header.html'),
+                     controller: require('./views/partials/header/header').controller()
                   },
                   'main@':{
                      template: require('./views/home/home.html'),
                      controller: require('./views/home/home').controller()
                   },
                   'footer':{
-                     template: require('./views/footer/footer.html'),
-                     controller: require('./views/footer/footer').controller()
+                     template: require('./views/partials/footer/footer.html'),
+                     controller: require('./views/partials/footer/footer').controller()
                   }
                }
             })
             .state('root.user', {
                abstract: true,
-               redirectTo: 'root.user.login'
+               resolve:{
+                  userAuth: ['$state', '$stateParams', 'authService', ($state: $state, $stateParams:$stateParams, authService: authService)=>{
+                     const userAddressBookId = null;
+                     if ( !angular.isString(userAddressBookId = authService.getUserAddressBookId()) )
+                     {
+                        $state.go('root.user.login', { candidate: $stateParams.candidate });
+                     }
+                     else
+                     {
+                        $state.go('root.user.login', { candidate: $stateParams.candidate });
+                     }
+                  }]
+               },
             })
             .state('root.user.login', {
                url: '/login',
@@ -48,10 +60,18 @@ export default function appRoutes() {
                }
             })
             .state('root.addressBook', {
-               url: '/{addressBook}',
+               url: '/{addressBookId}',
+               resolve: {
+                  userAuth: ['$state', '$stateParams', 'authService', ($state: $state, $stateParams:$stateParams, authService: authService)=>{
+                     if ( !angular.isString(authService.getUserAddressBookId()) )
+                     {
+                        $state.go('root.user.login', { candidate: $stateParams.candidate });
+                     }
+                  }]
+               },
                views:{
                   'main@':{
-                     template: '<nav data-ui-view="nav"></nav><aside data-ui-view="main-content" class="main-container"></aside>'
+                     template: '<nav data-ui-view="nav" class="main-navigation"></nav><aside data-ui-view="main-content" class="main-container"></aside>'
                   },
                },
                redirectTo: 'root.addressBook.contacts',
@@ -59,13 +79,26 @@ export default function appRoutes() {
             .state('root.addressBook.contacts', {
                url: '/contacts',
                views: {
-                  'nav'{
+                  'nav':{
                      template: require('./views/partials/navigation/navigation.html'),
                      controller: require('./views/partials/navigation/navigation').controller()
                   },
                   'main-content':{
                      template: require('./views/addressBook.contacts/index.html'),
                      controller: require('./views/addressBook.contacts/index').controller()
+                  },
+               }
+            })
+            .state('root.addressBook.groups', {
+               url: '/groups',
+               views: {
+                  'nav':{
+                     template: require('./views/partials/navigation/navigation.html'),
+                     controller: require('./views/partials/navigation/navigation').controller()
+                  },
+                  'main-content':{
+                     template: require('./views/addressBook.groups/index.html'),
+                     controller: require('./views/addressBook.groups/index').controller()
                   },
                }
             });

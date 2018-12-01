@@ -3,11 +3,11 @@ export function controller(){
    return ['$scope'
       , '$state'
       , '$stateParams'
-      , 'daoAddressBook'
+      , 'daoAddressBookService'
    , function($scope
       , $state
       , $stateParams
-      , daoAddressBook
+      , daoAddressBookService
    ){
 
       console.log($state, $stateParams);

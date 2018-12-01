@@ -1,5 +1,5 @@
 export function controller(){
-   return ['$scope', function($scope){
-      $scope.persona = {name: "fffffffffffffffff",id:2};
+   return ['$scope', '$state', '$stateParams', function($scope: $scope, $state: $state, $stateParams: $stateParams){
+
    }];//
 }

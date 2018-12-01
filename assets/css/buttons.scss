@@ -1,5 +1,5 @@
 @import 'variables.scss';
-button.btn-primary {
+button.btn-primary, button.btn-primary:disabled {
    background-color: $fuze-color-blue;
    border-color: $fuze-color-blue;
 }

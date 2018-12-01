@@ -1,13 +1,10 @@
 
-export default function routes() {'use strict';
-   const angular = require('angularjs');
-   const myapp = angular.module('fuzeAddressBook');
-
-   myapp.config(['$stateProvider'
+export default function appRoutes() {
+   return ['$stateProvider'
       , '$urlRouterProvider'
       , ($stateProvider
-      , $urlRouterProvider
-   ) => {
+         , $urlRouterProvider
+      ) => {
 
          $stateProvider
             .state('root', {
@@ -49,11 +46,32 @@ export default function routes() {'use strict';
                      controller: require('./views/user.register/index').controller()
                   },
                }
+            })
+            .state('root.addressBook', {
+               url: '/{addressBook}',
+               views:{
+                  'main@':{
+                     template: '<nav data-ui-view="nav"></nav><aside data-ui-view="main-content" class="main-container"></aside>'
+                  },
+               },
+               redirectTo: 'root.addressBook.contacts',
+            })
+            .state('root.addressBook.contacts', {
+               url: '/contacts',
+               views: {
+                  'nav'{
+                     template: require('./views/partials/navigation/navigation.html'),
+                     controller: require('./views/partials/navigation/navigation').controller()
+                  },
+                  'main-content':{
+                     template: require('./views/addressBook.contacts/index.html'),
+                     controller: require('./views/addressBook.contacts/index').controller()
+                  },
+               }
             });
 
          $urlRouterProvider.otherwise('root');
 
 
-   }])
-
+      }];
 }

@@ -27,8 +27,6 @@ body main {
    overflow: auto;
    overflow-scrolling: touch;
    flex: auto;
-   display: flex;
-   flex-direction: column;
 }
 
 main {
@@ -44,6 +42,22 @@ main {
    background-position: center;
    background-repeat: no-repeat;
    background-size: cover;
+}
+
+[data-ui-view="main"]{
+   display: flex;
+   background-color: white;
+   min-height: 100%;
+}
+
+[data-ui-view="main"] nav{
+   background-color: #292929;
+   flex: 1;
+}
+
+[data-ui-view="main"] .main-container{
+   padding: 10px;
+   flex: 5;
 }
 
 [data-ui-view="main"].ng-enter, [data-ui-view="main"].ng-leave {

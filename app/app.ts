@@ -1,6 +1,9 @@
 require('bootstrap-css-only');
 import appRoutes from './app-routes';
-import daoServiceAddressBook from "./services/dao.address.book.service";
+import ServiceDaoAddressBook from "./services/dao.address.book.service";
+import ServiceDaoContacts from "./services/dao.contacts.service";
+import ServiceDaoGroups from "./services/dao.groups.service";
+import serviceModalAddressBookConfig from "./services/modal.address.book.contacts.config";
 import authService from "./services/auth.service";
 import loadingComponent from "./components/loading";
 import '@fortawesome/fontawesome-free-webfonts';
@@ -11,19 +14,20 @@ import '../assets/css/main.scss'; // Best for last
 
 (function(){'use strict';
    const angular = require('angularjs');
-   const uirouter = require('angular-ui-router');
-   const ngCookies =require('angular-cookies');
-   const uibootstrap = require('angular-ui-bootstrap');
+   require('angular-ui-router');
+   require('angular-cookies');
+   require('angular-ui-bootstrap');
    require('angular-animate');
    require('angularjs-toaster');
 
    const myapp = angular.module('fuzeAddressBook', ['ngCookies', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'toaster']);
 
-   console.log(appRoutes(), daoServiceAddressBook(), loadingComponent());
-
    myapp
       .config(appRoutes())
-      .service('daoAddressBookService', daoServiceAddressBook())
+      .service('daoAddressBookService', ServiceDaoAddressBook())
+      .service('daoContactsService', ServiceDaoContacts())
+      .service('daoGroupsService', ServiceDaoGroups())
+      .service('modalAddressBookServiceConfig', serviceModalAddressBookConfig())
       .service('authService', authService())
       .directive('fuzeAddressBookLoadingBlocker', loadingComponent());
 

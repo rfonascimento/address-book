@@ -60,7 +60,6 @@ main {
 }
 
 [data-ui-view="main"] .main-container{
-   padding: 20px 50px;
    flex: 5;
 }
 
@@ -102,4 +101,24 @@ main {
    /*-webkit-transform:translate3d(100px, 0, 0);
    -moz-transform:translate3d(100px, 0, 0);
    transform:translate3d(100px, 0, 0);*/
+}
+
+
+/*
+BOOTSTRAP
+Override modal styles: there's seems to be an issue regarding this matter
+*/
+.fade.in {
+   opacity: 1;
+}
+
+.modal.in .modal-dialog {
+   -webkit-transform: translate(0, 0);
+   -ms-transform: translate(0, 0);
+   -o-transform: translate(0, 0);
+   transform: translate(0, 0);
+}
+
+.modal-backdrop.in {
+   opacity: 0.5;
 }

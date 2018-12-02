@@ -5,8 +5,8 @@ export default function daoContacts(){
 
       zpriv.getUrl = function(context: object, data: object){
 
-         if ( data && data.id ){
-            return `http://frontend-addressbook.herokuapp.com/${context.candidate}/${context.addressBookId}/contacts/${data.id}`
+         if ( data && data.name ){
+            return `http://frontend-addressbook.herokuapp.com/${context.candidate}/${context.addressBookId}/contacts/${data.name}`
          }
          else{
             return `http://frontend-addressbook.herokuapp.com/${context.candidate}/${context.addressBookId}/contacts/`
@@ -34,7 +34,7 @@ export default function daoContacts(){
       };
 
       dao.create = ((context: object, data: object):promise =>{
-         const url = zpriv.getUrl(context, data);
+         const url = `http://frontend-addressbook.herokuapp.com/${context.candidate}/${context.addressBookId}/contacts/`;
          return $http.post(url, data).then((response)=>{
             return { success: true, data: ((response || {}).data || {}).value };
          }).catch((error)=>{ return { success: false, error: error }; });

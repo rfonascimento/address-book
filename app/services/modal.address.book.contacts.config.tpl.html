@@ -7,11 +7,15 @@
       <div class="modal-body">
          <div class="form-group">
             <label for="fuze-address-book-contact-config-name">Name</label>
-            <input type="text" class="form-control" id="fuze-address-book-contact-config-name" placeholder="Insert contact name" data-ng-model="myController.data.name" required>
+            <input type="text" class="form-control" id="fuze-address-book-contact-config-name" placeholder="Insert contact name" data-ng-model="myController.data.name" data-ng-disabled="myController.isInEdition" required>
          </div>
          <div class="form-group">
             <label for="fuze-address-book-contact-config-phone">Phone number</label>
             <input type="tel" class="form-control" id="fuze-address-book-contact-config-phone" placeholder="Insert phone number" data-ng-model="myController.data.phone" required>
+         </div>
+         <div class="form-group" data-ng-if="0">
+            <label for="fuze-address-book-contact-config-email">E-mail</label>
+            <input type="email" class="form-control" id="fuze-address-book-contact-config-email" placeholder="Insert e-mail" data-ng-model="myController.data.email">
          </div>
          <div class="form-group">
             <label for="fuze-address-book-contact-config-group">Group</label>

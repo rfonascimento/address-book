@@ -21,7 +21,7 @@ export default function modalAddressBookContactsConfig(){
          const zpriv = {};
          const myscope = $scope[key] = (($scope)=>{return{
             loadInProgress: false,
-            data: data  || {},
+            data: angular.copy(data)  || {},
             isInEdition: angular.isObject(data),
             isInCreation: !angular.isObject(data)
          }})($scope);
@@ -38,7 +38,7 @@ export default function modalAddressBookContactsConfig(){
          myscope.actionConfigContact = ()=>{
             const promise = null;
             myscope.loadInProgress = true;
-            if ( !angular.isString(myscope.data.id) ){
+            if ( myscope.isInCreation ){
                promise = daoContactsService.create(zpriv.getContext(), myscope.data)
             }else{
                promise = daoContactsService.config(zpriv.getContext(), myscope.data)
@@ -50,9 +50,9 @@ export default function modalAddressBookContactsConfig(){
                   if ( myscope.isInCreation ){
                      toaster.success("Success", "Contact successfully created");
                   }else{
-                     toaster.success("Success", "Contact successfully edited");
+                     toaster.success("Success", "Contact successfully updated");
                   }
-                  return $scope.$close(response.data);
+                  return $scope.$close(myscope.data);
                }else{
                   toaster.error("Error", "It was not possible to configure the contact. Please try again");
                }

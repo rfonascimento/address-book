@@ -4,6 +4,7 @@ import ServiceDaoAddressBook from "./services/dao.address.book.service";
 import ServiceDaoContacts from "./services/dao.contacts.service";
 import ServiceDaoGroups from "./services/dao.groups.service";
 import serviceModalAddressBookConfig from "./services/modal.address.book.contacts.config";
+import serviceModalAddressBookDelete from "./services/modal.address.book.contacts.delete";
 import authService from "./services/auth.service";
 import loadingComponent from "./components/loading";
 import '@fortawesome/fontawesome-free-webfonts';
@@ -28,6 +29,7 @@ import '../assets/css/main.scss'; // Best for last
       .service('daoContactsService', ServiceDaoContacts())
       .service('daoGroupsService', ServiceDaoGroups())
       .service('modalAddressBookServiceConfig', serviceModalAddressBookConfig())
+      .service('modalAddressBookServiceDelete', serviceModalAddressBookDelete())
       .service('authService', authService())
       .directive('fuzeAddressBookLoadingBlocker', loadingComponent());
 

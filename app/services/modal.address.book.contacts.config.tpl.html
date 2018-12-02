@@ -1,7 +1,7 @@
 <div data-fuze-address-book-loading-blocker="myController.loadInProgress">
    <form name="myController.form" novalidate>
       <div class="modal-header">
-         <h5 class="modal-title" data-ng-if="myController.isInCreation">Create new contact</h5>
+         <h5 class="modal-title" data-ng-if="myController.isInCreation">Add new contact</h5>
          <h5 class="modal-title" data-ng-if="myController.isInEdition">Edit contact</h5>
       </div>
       <div class="modal-body">
@@ -32,7 +32,7 @@
          <button class="btn btn-primary" type="button"
             data-ng-if="myController.isInCreation"
             data-ng-click="myController.actionConfigContact(myController.data)"
-            data-ng-disabled="myController.form.$invalid">Create contact</button>
+            data-ng-disabled="myController.form.$invalid">Add contact</button>
          <button class="btn btn-primary" type="button"
             data-ng-if="myController.isInEdition"
             ng-click="myController.actionConfigContact(myController.data)"

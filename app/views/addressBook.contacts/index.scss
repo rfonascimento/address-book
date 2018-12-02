@@ -1,35 +1,23 @@
 @import '../../../assets/css/variables.scss';
 
 #fuze-address-book-contacts-page {
-   .inner{
-      padding: 20px 50px;
-   }
+   height: 100%;
+   position: relative;
+
    .search-form {
       margin-top: 1rem;
    }
 
    table{
-      td { vertical-align: middle }
-      thead th { border: none; }
       .col-number { width: 40px; }
       .col-picture { width: 80px; }
       .col-actions { width: 140px; }
-
-      button { margin-right: 0.2rem; }
 
       .thumbnail-picture{
          height: 3rem;
          width: 3rem;
          border-radius: 50%;
-         border: 1px solid $fuze-color-purple;
+         border: 2px solid $fuze-color-blue;
       }
    }
-}
-
-
-#fuze-address-book-contacts-page .inner{
-}
-
-#fuze-address-book-contacts-page .search-form {
-   margin-top: 1rem;
 }

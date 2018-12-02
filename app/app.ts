@@ -3,8 +3,10 @@ import appRoutes from './app-routes';
 import ServiceDaoAddressBook from "./services/dao.address.book.service";
 import ServiceDaoContacts from "./services/dao.contacts.service";
 import ServiceDaoGroups from "./services/dao.groups.service";
-import serviceModalAddressBookConfig from "./services/modal.address.book.contacts.config";
-import serviceModalAddressBookDelete from "./services/modal.address.book.contacts.delete";
+import serviceModalAddressBookContactsConfig from "./services/modal.address.book.contacts.config";
+import serviceModalAddressBookContactsDelete from "./services/modal.address.book.contacts.delete";
+import serviceModalAddressBookGroupsConfig from "./services/modal.address.book.groups.config";
+import serviceModalAddressBookGroupsDelete from "./services/modal.address.book.groups.delete";
 import authService from "./services/auth.service";
 import loadingComponent from "./components/loading";
 import '@fortawesome/fontawesome-free-webfonts';
@@ -28,8 +30,10 @@ import '../assets/css/main.scss'; // Best for last
       .service('daoAddressBookService', ServiceDaoAddressBook())
       .service('daoContactsService', ServiceDaoContacts())
       .service('daoGroupsService', ServiceDaoGroups())
-      .service('modalAddressBookServiceConfig', serviceModalAddressBookConfig())
-      .service('modalAddressBookServiceDelete', serviceModalAddressBookDelete())
+      .service('modalAddressBookServiceContactsConfig', serviceModalAddressBookContactsConfig())
+      .service('modalAddressBookServiceContactsDelete', serviceModalAddressBookContactsDelete())
+      .service('modalAddressBookGroupsServiceConfig', serviceModalAddressBookGroupsConfig())
+      .service('modalAddressBookGroupsServiceDelete', serviceModalAddressBookGroupsDelete())
       .service('authService', authService())
       .directive('fuzeAddressBookLoadingBlocker', loadingComponent());
 

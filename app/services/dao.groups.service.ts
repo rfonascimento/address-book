@@ -34,7 +34,7 @@ export default function daoGroups(){
       };
 
       dao.create = ((context: object, data: object):promise =>{
-         const url = zpriv.getUrl(context, data);
+         const url = `http://frontend-addressbook.herokuapp.com/${context.candidate}/${context.addressBookId}/groups/`;
          return $http.post(url, data).then((response)=>{
             return { success: true, data: ((response || {}).data || {}).value };
          }).catch((error)=>{ return { success: false, error: error }; });

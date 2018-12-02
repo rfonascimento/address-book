@@ -2,6 +2,7 @@
 @import 'inputs.scss';
 @import 'typography.scss';
 @import 'navigation.scss';
+@import 'tables.scss';
 @import 'misc.scss';
 @import './components/loading.scss';
 @import './components/toaster.scss';
@@ -45,6 +46,44 @@ main {
    background-position: center;
    background-repeat: no-repeat;
    background-size: cover;
+
+
+   .main-container{
+      .inner{
+         padding: 20px 50px;
+      }
+   }
+}
+
+#logo{
+   background: url(../images/logo.svg) no-repeat top left;
+   background-size: contain;
+   height: 32px;
+   margin-left: 1rem;
+   margin-top: 0.8rem;
+}
+
+#fuze-address-book-nav-mobile {
+   display: none;
+}
+
+/*
+MEDIA QUERIES
+*/
+
+@media (max-width: 767.98px) {
+   nav.main-navigation{ display: none; }
+
+   main {
+      .main-container{
+         #fuze-address-book-nav-mobile{
+            display: block;
+         }
+         .inner{
+            padding: 10px 20px;
+         }
+      }
+   }
 }
 
 [data-ui-view="main"]{

@@ -11,6 +11,10 @@ export default function Auth(){
          return $cookies.put('userAddressBookId', userAddressBook);
       };
 
+      service.unsetUserAddressBookId = ()=>{
+         return $cookies.remove('userAddressBookId');
+      };
+
       return service;
    })];
 };

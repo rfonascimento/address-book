@@ -3,6 +3,7 @@ import appRoutes from './app-routes';
 import ServiceDaoAddressBook from "./services/dao.address.book.service";
 import ServiceDaoContacts from "./services/dao.contacts.service";
 import ServiceDaoGroups from "./services/dao.groups.service";
+import ServiceLocalStorage from "./services/local.storage.service";
 import serviceModalAddressBookContactsConfig from "./services/modal.address.book.contacts.config";
 import serviceModalAddressBookContactsDelete from "./services/modal.address.book.contacts.delete";
 import serviceModalAddressBookGroupsConfig from "./services/modal.address.book.groups.config";
@@ -30,6 +31,7 @@ import '../assets/css/main.scss'; // Best for last
       .service('daoAddressBookService', ServiceDaoAddressBook())
       .service('daoContactsService', ServiceDaoContacts())
       .service('daoGroupsService', ServiceDaoGroups())
+      .service('localStorageService', ServiceLocalStorage())
       .service('modalAddressBookServiceContactsConfig', serviceModalAddressBookContactsConfig())
       .service('modalAddressBookServiceContactsDelete', serviceModalAddressBookContactsDelete())
       .service('modalAddressBookGroupsServiceConfig', serviceModalAddressBookGroupsConfig())
@@ -40,11 +42,18 @@ import '../assets/css/main.scss'; // Best for last
 
 
    myapp.controller('mainCtrl', ['$rootScope', '$scope', '$state', ($rootScope: $rootScope, $scope:$scope, $state:$state) =>{
-      const key = 'myController';
+      const key = 'myMainController';
       const myscope = $scope[key] = (($scope)=>{return{
          loadInProgress: false,
          data: {}
       }})($scope);
+
+
+      myscope.isEntryState = ():boolean=>{
+         return $state.includes('root.user');
+      };
+
+
 
       $rootScope.$on('$stateChangeError',
          function(event, toState, toParams, fromState, fromParams, error){

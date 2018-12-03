@@ -1,5 +1,13 @@
 export default function daoGroups(){
-   return ['$http', '$stateParams', '$parse', (($http: $http, $stateParams: $stateParams, $parse:$parse):object => {
+   return ['$http'
+      , '$stateParams'
+      , '$parse'
+      , 'localStorageService'
+   , (($http: $http
+      , $stateParams: $stateParams
+      , $parse:$parse
+      , localStorageService:localStorageService
+   ):object => {
       const dao: object = {};
       const zpriv: object = {};
 
@@ -27,10 +35,18 @@ export default function daoGroups(){
 
       // Apparently there's no GET to the resource per se
       dao.getExtended = (context:object)=>{
+         const data;
          const url = `http://frontend-addressbook.herokuapp.com/${context.candidate}/${context.addressBookId}`;
          return $http.get(url).then((response)=>{
+            localStorageService.setObject('fuzeAddressBookGroupsData', $parse('data.value.groups')(response));
             return { success: true, data: $parse('data.value.groups')(response) };
-         }).catch((error)=>{ return { success: false, error: error }; });
+         }).catch((error)=>{
+            if ( angular.isObject(data = localStorageService.getObject('fuzeAddressBookGroupsData')) ){
+               return { success: true, data: data }
+            }else{
+               return { success: false, error: error };
+            }
+         });
       };
 
       dao.create = ((context: object, data: object):promise =>{

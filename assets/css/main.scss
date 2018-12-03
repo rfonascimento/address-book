@@ -9,6 +9,9 @@
 @import './partials/header.scss';
 @import './partials/footer.scss';
 
+html{
+   overflow: hidden;
+}
 
 html,
 body {
@@ -36,17 +39,21 @@ body main {
 main {
    flex-grow: 1;
 
-   /* The image used */
-   background-image: url('../../assets/images/bg_full_landing_page.png');
-
    /* Full height */
    height: 100%;
 
-   /* Center and scale the image nicely */
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
+   &.fuze-address-book-login-sign-in-page{
+      /* The image used */
+      background-image: url('../../assets/images/bg_full_landing_page.png');
 
+      /* Full height */
+      height: 100%;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+   }
 
    .main-container{
       .inner{
@@ -88,7 +95,6 @@ MEDIA QUERIES
 
 [data-ui-view="main"]{
    display: flex;
-   background-color: white;
    min-height: 100%;
 }
 
@@ -160,4 +166,8 @@ Override modal styles: there's seems to be an issue regarding this matter
 
 .modal-backdrop.in {
    opacity: 0.5;
+}
+
+.open>.dropdown-menu{
+   display: block;
 }

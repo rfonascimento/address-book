@@ -26,8 +26,18 @@ export default function appRoutes() {
                }
             })
             .state('root.user', {
-               abstract: true,
-               resolve:{
+               redirectTo: ['$state', '$stateParams', 'authService', ($state: $state, $stateParams:$stateParams, authService: authService)=>{
+                  const userAddressBookId = null;
+                  if ( !angular.isString(userAddressBookId = authService.getUserAddressBookId()) )
+                  {
+                     $state.go('root.user.login', { candidate: $stateParams.candidate });
+                  }
+                  else
+                  {
+                     $state.go('root.user.login', { candidate: $stateParams.candidate });
+                  }
+               }]
+               /*resolve:{
                   userAuth: ['$state', '$stateParams', 'authService', ($state: $state, $stateParams:$stateParams, authService: authService)=>{
                      const userAddressBookId = null;
                      if ( !angular.isString(userAddressBookId = authService.getUserAddressBookId()) )
@@ -39,7 +49,7 @@ export default function appRoutes() {
                         $state.go('root.user.login', { candidate: $stateParams.candidate });
                      }
                   }]
-               },
+               },*/
             })
             .state('root.user.login', {
                url: '/login',

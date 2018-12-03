@@ -1,5 +1,29 @@
+import './header.scss'
 export function controller(){
-   return ['$scope', function($scope){
-      $scope.persona = {name: "fffffffffffffffff",id:2};
+   return ['$scope'
+      , '$state'
+      , '$stateParams'
+      , 'authService'
+   , function($scope:$scope
+      , $state
+      , $stateParams
+      , authService
+      ){
+      const key = 'myController';
+      const zpriv = {};
+      const myscope = $scope[key] = (($scope)=>{return{
+         loadInProgress: false,
+         candidate: $stateParams.candidate
+      }})($scope);
+
+      myscope.actionLogout = ()=>{
+         authService.unsetUserAddressBookId();
+         $state.go('root.user.login');
+      };
+
+      myscope.isUserLoggedIn = ()=>{
+         return angular.isString(authService.getUserAddressBookId());
+      };
+
    }];//
 }

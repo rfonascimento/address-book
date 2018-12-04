@@ -1,4 +1,4 @@
-<div id="fuze-address-book-contacts-page" data-fuze-address-book-loading-blocker="myController.loadInProgress">
+<div id="fuze-address-book-groups-page" data-fuze-address-book-loading-blocker="myController.loadInProgress">
    <div class="inner">
       <div class="row">
          <div id="fuze-address-book-nav-mobile" class="col-12">
@@ -9,10 +9,10 @@
             </div>
          </div>
          <div class="col-12 col-md-10">
-            <h1>Contact list</h1>
+            <h1>Contact groups</h1>
          </div>
          <div class="col-12 col-md-2">
-            <button class="btn btn-primary btn-lg full-width" type="submit" data-ng-click="myController.actionConfigContact()">Add contact</button>
+            <button class="btn btn-primary btn-lg full-width" type="submit" data-ng-click="myController.actionConfigGroup()">Create group</button>
          </div>
       </div>
       <div class="row">
@@ -21,7 +21,7 @@
                <div class="form-group">
                   <div class="row">
                      <div class="col-12 col-md-12">
-                        <input class="form-control form-control-lg" type="text" placeholder="search contacts" data-ng-model="myController.searchQuery[myController.searchQueryBy]">
+                        <input class="form-control form-control-lg" type="text" placeholder="search groups" data-ng-model="myController.searchQuery[myController.searchQueryBy]">
                      </div>
                   </div>
                </div>
@@ -33,25 +33,23 @@
                   <th class="col-number">#</th>
                   <th class="col-picture">Picture</th>
                   <th class="col-name">Name</th>
-                  <th class="col-phone">Phone</th>
-                  <th class="col-groupName">Group</th>
-                  <!--<th class="col-email">E-mail</th>-->
+                  <th class="col-phone">Description</th>
+                  <th class="col-email">Number of contacts</th>
                   <th class="col-actions">Actions</th>
                </tr>
                </thead>
                <tbody>
-                  <tr data-ng-repeat="data in myController.data | filter:myController.searchQuery">
-                     <td>{{ $index+1 }}</td>
-                     <td><img class="thumbnail-picture" data-ng-src="{{ data.pictureUrl }}"></td>
-                     <td>{{ data.name }}</td>
-                     <td>{{ data.phone }}</td>
-                     <td>{{ data.$$$groupName }}</td>
-                     <!--<td>{{ data.email }}</td>-->
-                     <td>
-                        <button class="btn btn-sm btn-edit" data-ng-click="myController.actionConfigContact(data)">Edit</button>
-                        <button class="btn btn-sm btn-delete" data-ng-click="myController.actionDeleteContact(data)">Delete</button>
-                     </td>
-                  </tr>
+               <tr data-ng-repeat="data in myController.data | filter:myController.searchQuery">
+                  <td>{{ $index+1 }}</td>
+                  <td><img class="thumbnail-picture" data-ng-src="{{ data.pictureUrl }}"></td>
+                  <td>{{ data.name }}</td>
+                  <td>{{ data.description }}</td>
+                  <td>{{ data.$$$count }}</td>
+                  <td>
+                     <button class="btn btn-sm btn-edit" data-ng-click="myController.actionConfigGroup(data)">Edit</button>
+                     <button class="btn btn-sm btn-delete" data-ng-click="myController.actionDeleteGroup(data)">Delete</button>
+                  </td>
+               </tr>
                </tbody>
             </table>
 
